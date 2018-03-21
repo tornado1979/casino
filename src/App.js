@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import './css/index.scss'
+import Header from './components/header'
+import Main from './components/main'
+import Footer from './components/footer'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Online casino simulator!</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="wrapper">
+        <Header/>
+        <Main/>
+        <Footer/>
       </div>
     );
   }
