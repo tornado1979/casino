@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default () => (
   <nav className="nav justify-content-end flex-column flex-sm-row">
-    <a className="flex-sm-fill text-sm-center nav-link active" href="#">Games</a>
-    <a className="flex-sm-fill text-sm-center nav-link" href="#">Username</a>
-    <a className="flex-sm-fill text-sm-center nav-link" href="#">Settings</a>
-    <a className="flex-sm-fill text-sm-center nav-link" href="#">Logout</a>
+    <Link to="/games" className="flex-sm-fill text-sm-center nav-link active" >Games</Link>
+    <Link to="/" className="flex-sm-fill text-sm-center nav-link" >Username</Link>
+    <Link to="/settings" className="flex-sm-fill text-sm-center nav-link" >Settings</Link>
+    <Link to="/" className="flex-sm-fill text-sm-center nav-link" >Logout</Link>
   </nav>
 )
