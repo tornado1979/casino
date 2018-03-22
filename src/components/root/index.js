@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import Games from '../../modules/gameLobby'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import { routes } from '../../routes'
 
 const Root = ({ store }) => (
   <Provider store={store}>
