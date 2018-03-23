@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Games from '../../modules/gameLobby'
+import GamePlayer from '../../modules/gamePlayer'
 import Login from '../../modules/login'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
@@ -15,7 +16,7 @@ const Root = ({ store }) => (
         <Header/>
         <div className="main">
           <Route exact path="/games" component={Games} />
-          <Route path="/games/:gameId" component={Games}/>
+          <Route path="/game/:gameId" component={GamePlayer}/>
           <Route path="/login" component={Login}/>
         </div>
         <Footer/>
