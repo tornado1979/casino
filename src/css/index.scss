@@ -4,6 +4,7 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
   margin: 0;
+  height: 100%;
 }
 
 ///general style
@@ -68,4 +69,29 @@ body {
 .username-nav {
   background: skyblue;
   cursor: default;
+}
+
+// GamePlayer
+.game-player {
+  height: 300px;
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  cursor: pointer;
+}
+
+//close button on gamePlayer
+.game-player .closeButton {
+  position: absolute;
+  display: block;
+  color: violet;
+  font-size: 12pt;
+  top: 5px;
+  right: 0px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  z-index: 3;
 }
