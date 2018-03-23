@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
+import { MemoryRouter } from 'react-router-dom'
 import Header from './index';
 
-it('renders `Header` component without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Header />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+test('check Header component', () => {
+  render(
+    <MemoryRouter>
+      <Header/>
+    </MemoryRouter>
+  )
+})

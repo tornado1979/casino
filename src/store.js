@@ -4,6 +4,7 @@ import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducers from './modules/reducers'
 import loggerMiddleware from './middlewares/logger'
+import { getUser } from './modules/user/actionCreators'
 
 export const history = createHistory()
 
@@ -37,5 +38,8 @@ const store = createStore(
     initialState,
     composedEnhancers
 )
+
+//check if user is logged in
+store.dispatch(getUser())
 
 export default store
