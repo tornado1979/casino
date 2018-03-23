@@ -1,6 +1,7 @@
 import _ from 'lodash'
 
 export const getUser = (state) => {
+  console.log('is user',state)
   return (state && !_.isEmpty(state.user))
 }
 

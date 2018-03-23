@@ -9,6 +9,10 @@ import {
   LOGIN_SUCCESS,
 } from '../../login/actions'
 
+import {
+  LOG_OUT_SUCCESS,
+} from '../../../components/logout/actions'
+
 export const user = (state={}, action) => {
   switch(action.type){
     case GET_USER:
@@ -22,6 +26,8 @@ export const user = (state={}, action) => {
       return {
         ...action.payload,
       }
+    case LOG_OUT_SUCCESS:
+      return {}
     case UPDATE_USERNAME_SUCCESS:
       return {
         username: action.payload,
