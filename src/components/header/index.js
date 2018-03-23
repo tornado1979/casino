@@ -9,7 +9,7 @@ const Header = (props) => (
     <Link to="/games" className="flex-sm-fill text-sm-center nav-link active" >Games</Link>
     {props.isLoggedIn && <div className="username-nav flex-sm-fill text-sm-center nav-link">{props.username}</div>}
     {props.isLoggedIn && <Link to="/settings" className="flex-sm-fill text-sm-center nav-link" >Settings</Link>}
-    {props.isLoggedIn && <Link to="/" className="flex-sm-fill text-sm-center nav-link" >Logout</Link>}
+    {props.isLoggedIn && <Link to="/logout" className="flex-sm-fill text-sm-center nav-link" >Logout</Link>}
     {!props.isLoggedIn && <Link to="/login" className="flex-sm-fill text-sm-center nav-link" >Login</Link>}
   </nav>
 )
