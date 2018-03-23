@@ -5,7 +5,7 @@ import { GAMES_URL } from '../../../constants'
 import { 
   RECEIVE_GAMES,
   REQUEST_GAMES,
-  SERVER_CONNECTION_ERROR,
+  RECEIVE_GAMES_FAIL,
  } from '../actions'
 
 const requestGames = () => {
@@ -28,7 +28,7 @@ const receiveGames = (data) => {
 const error = (err) => {
     return {
         payload: err,
-        type: SERVER_CONNECTION_ERROR,
+        type: RECEIVE_GAMES_FAIL,
     }
 }
 
