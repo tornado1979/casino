@@ -8,13 +8,14 @@ body {
 
 ///general style
 .wrapper {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   // Direction of the items
   flex-direction: column;
 }
 
 .main {
+  display: flex;
   flex: 1;
   background-color: lightslategray;
 }
@@ -27,6 +28,7 @@ body {
 
 .my-container {
   @include make-container;
+  margin: auto;
 }
 
 .my-row {
