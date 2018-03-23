@@ -80,18 +80,37 @@ body {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   cursor: pointer;
+  background: url('../dummy-database/images/finn.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+
+  //close button on gamePlayer
+  .closeButton {
+    position: absolute;
+    display: block;
+    font-size: 12pt;
+    top: 5px;
+    right: 0px;
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 3;
+    text-align: center;
+    background-color: grey;
+    display: table;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
 }
 
-//close button on gamePlayer
-.game-player .closeButton {
-  position: absolute;
-  display: block;
-  color: violet;
-  font-size: 12pt;
-  top: 5px;
-  right: 0px;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  z-index: 3;
+.message {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.small-container{
+  position: relative;
+  top: 40%;
 }
