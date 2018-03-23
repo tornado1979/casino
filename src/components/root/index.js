@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Games from '../../modules/gameLobby'
 import GamePlayer from '../../modules/gamePlayer'
 import Login from '../../modules/login'
+import Settings from '../../modules/settings'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import { history } from '../../helpers/history'
@@ -18,6 +19,7 @@ const Root = ({ store }) => (
           <Route exact path="/games" component={Games} />
           <Route path="/game/:gameId" component={GamePlayer}/>
           <Route path="/login" component={Login}/>
+          <Route path="/settings" component={Settings}/>
         </div>
         <Footer/>
       </div>
