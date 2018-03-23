@@ -1,5 +1,6 @@
 import {
   GET_USER,
+  UPDATE_USERNAME_SUCCESS,
 } from '../actions'
 
 import {
@@ -20,6 +21,10 @@ export const user = (state={}, action) => {
     case LOGIN_SUCCESS:
       return {
         ...action.payload,
+      }
+    case UPDATE_USERNAME_SUCCESS:
+      return {
+        username: action.payload,
       }
     default:
       return state
