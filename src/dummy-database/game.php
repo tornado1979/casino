@@ -31,8 +31,41 @@ $casinoGames['casinoGames'][4]['gameName'] = "Playboy Gold";
 $casinoGames['casinoGames'][4]['image'] = "http://www.deutz-hellas.gr/dummy-database/images/playboy.jpg";
 $casinoGames['casinoGames'][4]['description'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.";
 $casinoGames['casinoGames'][4]['favorite'] = 7;
+$idx=-1;
 
-echo json_encode($casinoGames);
+switch($_SERVER['REQUEST_METHOD'])
+{
+  case 'GET':
+  //check if client sends 'gameId
+  if (isset($_GET["gameId"])) {
+    $rgameId = $_GET["gameId"];
+
+    //loop through the games array
+    foreach ($casinoGames as &$value) {
+      foreach($value as $key => $val){
+        if ($rgameId == $val['gameId']){
+          $idx = $key;
+        }
+      }
+    }
+    if($idx > -1){
+      //return the game obj to the client
+      echo json_encode($casinoGames['casinoGames'][$idx]);
+    }else {
+      //return empty object
+      $empty = new stdClass();
+      echo json_encode($empty);
+    }
+  } else {
+    //return empty object
+    $empty = new stdClass();
+    echo json_encode($empty);
+  }
+  break;
+  default:
+    //return Unauthorized error
+    echo http_response_code(401);
+}
 
 ?>
 
