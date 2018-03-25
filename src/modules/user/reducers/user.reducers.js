@@ -20,9 +20,8 @@ export const user = (state={}, action) => {
         ...action.payload.user,
       }
     case LOGIN_REQUEST:
-    case LOGIN_FAIL:
-      return {}
     case LOGIN_SUCCESS:
+    case LOGIN_FAIL:
       return {
         ...action.payload,
       }

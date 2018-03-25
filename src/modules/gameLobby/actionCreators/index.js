@@ -26,10 +26,10 @@ const receiveGames = (data) => {
 }
 
 const error = (err) => {
-    return {
-        payload: err,
-        type: RECEIVE_GAMES_FAIL,
-    }
+  return {
+    payload: err,
+    type: RECEIVE_GAMES_FAIL,
+  }
 }
 
 export const fetchGames = () => (dispatch) => {
