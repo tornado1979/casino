@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import { getUser, getUsername } from '../../modules/user/selectors'
+import { isUserLoggedIn, getUsername } from '../../modules/user/selectors'
 
-const Header = (props) => (
+const Header = props => (
   <nav className="nav justify-content-end flex-column flex-sm-row">
     <Link to="/games" className="flex-sm-fill text-sm-center nav-link active" >Games</Link>
     {props.isLoggedIn && <div className="username-nav flex-sm-fill text-sm-center nav-link">{props.username}</div>}
@@ -15,11 +15,11 @@ const Header = (props) => (
 )
 
 function mapStateToProps(state) {
-  const isLoggedIn = !!getUser(state)
+  const isLoggedIn = isUserLoggedIn(state)
   const username = getUsername(state)
   return {
     isLoggedIn,
-    username
+    username,
   }
 }
 export default connect(mapStateToProps)(Header)
