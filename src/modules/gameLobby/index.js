@@ -19,7 +19,7 @@ import {
   getGames,
 } from './selectors'
 
-import { getUser } from '../user/selectors'
+import { isUserLoggedIn } from '../user/selectors'
 
 class GameLobby extends Component {
   constructor(props){
@@ -89,7 +89,7 @@ GameLobby.propTypes = {
 
 
 const mapStateToProps = (state) => {
-  const isLoggedIn = !!getUser(state)
+  const isLoggedIn = isUserLoggedIn(state)
   return {
     games: getGames(state),
     isLoggedIn,

@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 import { USERS_URL } from '../../../constants'
 import { history } from '../../../helpers/history'
 
@@ -8,29 +8,36 @@ import {
   LOGIN_FAIL,
 } from '../actions'
 
-const requestLogin = (username) => {
+export const requestLogin = () => {
   return {
-    payload: username,
+    payload: {
+      isFetching: true,
+    },
     type: LOGIN_REQUEST,
   }
 }
 
-const loginSuccess = (user) => {
+export const loginSuccess = (user) => {
   return {
-    payload: user,
+    payload: {
+      ...user,
+      isFetching: false,
+    },
     type: LOGIN_SUCCESS,
   }
 }
 
-const loginFailure = (err) => {
+export const loginFailure = () => {
   return {
-    payload: {},
+    payload: {
+      isFetching: false,
+    },
     type: LOGIN_FAIL,
   }
 }
 
 export const login = (username,password) => (dispatch) => {
-  dispatch(requestLogin(username))
+  dispatch(requestLogin())
   const URL = `${USERS_URL}?username=${username}&password=${password}`
   return axios(URL)
   .then((response)=> {
@@ -44,7 +51,7 @@ export const login = (username,password) => (dispatch) => {
     history.push('/games')
   })
   .catch((err) => {
-    return dispatch(loginFailure(err))
+    return dispatch(loginFailure())
     //pending: dispatch error message on the client as a notification..
   })
 }

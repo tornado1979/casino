@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
-import { getUser } from '../user/selectors'
 import { login } from '../login/actionCreators'
 
 import '../../css/index.scss'
@@ -74,15 +73,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  isLoggedIn: propTypes.bool.isRequired,
   login: propTypes.func.isRequired,
-}
-
-const mapStateToProps = (state) => {
-  const isLoggedIn = !!getUser(state)
-  return {
-    isLoggedIn
-  }
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
@@ -90,6 +81,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 }, dispatch)
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(Login)

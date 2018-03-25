@@ -1,0 +1,25 @@
+ {
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off",
+    "no-useless-escape": ["off"],
+    "react/jsx-sort-props": [1, {
+        "callbacksLast": false,
+        "ignoreCase": true,
+        "shorthandFirst": false
+    }],
+    "react/sort-prop-types": [1, {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "requiredFirst": false
+    }],
+    "semi": [2, "never"],
+    "sort-keys": ["warn", "asc", {"caseSensitive": true, "natural": false}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "linebreak-style": ["error", "windows"]
+  }
+}

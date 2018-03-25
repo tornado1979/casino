@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-const Form = ({ handleChange, handleSubmit, submitted, password, username}) => (
+const Form = ({ handleChange, handleSubmit, submitted, password, username}={}) => (
   <form name="form" onSubmit={(event) => { handleSubmit(event)} }>
 
       <div className="form-group">
