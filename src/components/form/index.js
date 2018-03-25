@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-const Form = ({ handleChange, handleSubmit, submitted, password, username}={}) => (
+const Form = ({ handleChange, handleSubmit, hasPassword, submitted, password, username}={}) => (
   <form name="form" onSubmit={(event) => { handleSubmit(event)} }>
 
       <div className="form-group">
@@ -12,7 +12,7 @@ const Form = ({ handleChange, handleSubmit, submitted, password, username}={}) =
         onChange={(event) => {handleChange(event)}}
       />
     </div>
-    {password
+    {hasPassword
     && <div className="form-group">
       <label htmlFor="inputPassword">Password</label>
       <input type="password" className="form-control"
@@ -28,6 +28,7 @@ const Form = ({ handleChange, handleSubmit, submitted, password, username}={}) =
 Form.propTypes = {
   handleChange: propTypes.func.isRequired,
   handleSubmit: propTypes.func.isRequired,
+  hasPassword: propTypes.bool.isRequired,
   submitted: propTypes.bool.isRequired,
   password: propTypes.string,
   username: propTypes.string.isRequired,

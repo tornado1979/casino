@@ -48,6 +48,7 @@ class Settings extends Component {
               submitted={false}
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
+              hasPassword={false}
             />
           </div>
         </div>

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
-import { login } from '../login/actionCreators'
 
+import { login } from '../login/actionCreators'
+import Form from '../../components/form'
 import '../../css/index.scss'
 
 class Login extends Component {
@@ -45,26 +46,14 @@ class Login extends Component {
       <div className="my-container">
         <div className="my-row justify-content-center">
           <div className="col-sm-6">
-            <form name="form" onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="inputUsername">Username</label>
-                <input type="text" className="form-control" id="inputUsername"
-                  placeholder="Enter username"
-                  name="username" value={username}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputPassword">Password</label>
-                <input type="password" className="form-control"
-                  id="inputPassword"
-                  placeholder="Password"
-                  name="password" value={password}
-                  onChange={this.handleChange}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary" value={submitted}>Submit</button>
-            </form>
+            <Form
+                username={username}
+                password={password}
+                hasPassword={true}
+                submitted={submitted}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+              />
           </div>
         </div>
       </div>
