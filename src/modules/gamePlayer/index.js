@@ -17,7 +17,7 @@ import {
   getGame,
 } from './selectors'
 
-import { getUser } from '../user/selectors'
+import { isUserLoggedIn } from '../user/selectors'
 import Button from '../../components/button'
 import '../../css/index.scss'
 import { history } from '../../helpers/history'
@@ -88,7 +88,7 @@ GamePlayer.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const isLoggedIn = !!getUser(state)
+  const isLoggedIn = isUserLoggedIn(state)
   return {
     game: getGame(state),
     isLoggedIn,
