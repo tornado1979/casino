@@ -8,7 +8,7 @@ import {
   RECEIVE_GAME_FAIL,
  } from '../actions'
 
-const requestGame = () => {
+export const requestGame = () => {
   return {
     payload: {
       game:{},
@@ -18,7 +18,7 @@ const requestGame = () => {
   }
 }
 
-const receiveGame = (data) => {
+export const receiveGame = (data) => {
   return {
     payload: {
       game: data,
@@ -28,7 +28,7 @@ const receiveGame = (data) => {
   }
 }
 
-const error = (err) => {
+export const error = (err) => {
     return {
         payload: err,
         type: RECEIVE_GAME_FAIL,

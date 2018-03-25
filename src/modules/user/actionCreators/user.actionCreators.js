@@ -3,11 +3,11 @@ import {
   UPDATE_USERNAME_SUCCESS,
 } from '../actions'
 
-export const getUser = () => (dispatch) => {
+export const getUser = (theUser=null) => (dispatch) => {
   //get user from localstorage
-  let user = JSON.parse(localStorage.getItem('user'));
+  let user = !theUser ? JSON.parse(localStorage.getItem('user')) : theUser;
   return dispatch({
-    payload: { user },
+    payload: { user:user },
     type: GET_USER
   })
 }

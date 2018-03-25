@@ -8,7 +8,7 @@ import {
   LOGIN_FAIL,
 } from '../actions'
 
-const requestLogin = () => {
+export const requestLogin = () => {
   return {
     payload: {
       isFetching: true,
@@ -17,7 +17,7 @@ const requestLogin = () => {
   }
 }
 
-const loginSuccess = (user) => {
+export const loginSuccess = (user) => {
   return {
     payload: {
       ...user,
@@ -27,7 +27,7 @@ const loginSuccess = (user) => {
   }
 }
 
-const loginFailure = () => {
+export const loginFailure = () => {
   return {
     payload: {
       isFetching: false,
