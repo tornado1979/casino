@@ -1,7 +1,5 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 
 import * as action from './index'
 
@@ -11,8 +9,6 @@ import {
   RECEIVE_GAME_FAIL,
  } from '../actions'
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
 
 describe('* gamePlayer actionCreators:', () => {
 
