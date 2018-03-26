@@ -47,12 +47,14 @@ render() {
   const { isLoggedIn, game } = this.props
   const nogame = _.isEmpty(game)
 
+  const gamebg = !nogame ? {'background-image': `url(${game.image})`}
+    : {'background-image': `url(http://www.deutz-hellas.gr/dummy-database/images/loader.gif)`}
+
   return(
     <div className="my-container">
     <div className="my-row justify-content-center">
-      <div className="game-player col-sm-6">
-       <span className="closeButton" onClick={() => this.goto('/games')}>x</span>
-       
+      <div className="game-player col-sm-6" style={gamebg}>
+       <span className="closeButton" onClick={() => this.goto('/games')}>x</span>       
           {!isLoggedIn 
           && <div className="mx-auto w-100 p-3 bg-dark small-container">
           {/*if user is not logged in*/}
@@ -71,6 +73,11 @@ render() {
               action={this.goto}
               goto="/games"/>
           </div>}
+      </div>
+    </div>
+    <div className="my-row justify-content-center">
+      <div className="col-sm-12">
+        {!nogame && `${game.gameName}.  ${game.description}`}
       </div>
     </div>
   </div>
