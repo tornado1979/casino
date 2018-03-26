@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux'
 
-import { 
+import {
   asyncGames as games,
- } from '../gameLobby/reducers'
+} from '../gameLobby/reducers'
 
- import {
-   user,
- } from '../user/reducers'
+import {
+  user,
+} from '../user/reducers'
 
- import {
-   gamePlayer,
- } from '../gamePlayer/reducers'
+import {
+  gamePlayer,
+} from '../gamePlayer/reducers'
 
 const rootReducers = combineReducers({
   gamePlayer,

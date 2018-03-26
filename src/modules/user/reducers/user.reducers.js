@@ -13,8 +13,8 @@ import {
   LOG_OUT_SUCCESS,
 } from '../../../components/logout/actions'
 
-export const user = (state={}, action) => {
-  switch(action.type){
+export const user = (state = {}, action) => {
+  switch (action.type) {
     case GET_USER:
       return {
         ...action.payload.user,

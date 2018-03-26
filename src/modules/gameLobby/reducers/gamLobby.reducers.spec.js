@@ -12,17 +12,17 @@ import {
 describe('* gameLoby reducers:', () => {
   describe(`reducers/gameLobby when action is ${REQUEST_GAMES}`, () => {
     const action = {
-      payload: {isFetching: true},
+      payload: { isFetching: true },
       type: REQUEST_GAMES,
     }
-  
+
     it('updates games state "isFetching" to true', () => {
       expect(asyncGames(undefined, action)).to.eql({
         isFetching: true,
       })
     })
   })
-  
+
   describe(`reducers/gameLobby when action is ${RECEIVE_GAMES}`, () => {
     const action = {
       payload: {
@@ -33,10 +33,10 @@ describe('* gameLoby reducers:', () => {
       },
       type: RECEIVE_GAMES,
     }
-  
+
     it('adds casinoGames list on games state', () => {
       expect(asyncGames(undefined, action)).to.eql({
-        games:{
+        games: {
           casinoGames: [],
         },
         isFetching: false,
@@ -51,7 +51,7 @@ describe('* gameLoby reducers:', () => {
 
     it('updates games state "isFetching" to false', () => {
       expect(asyncGames(undefined, action)).to.eql({
-        casinoGames:[],
+        casinoGames: [],
         isFetching: false,
       })
     })

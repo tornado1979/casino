@@ -4,45 +4,60 @@ import propTypes from 'prop-types'
 import Notification from '../notification'
 import * as message from '../../constants'
 
-const Form = ({ handleChange, handleSubmit, hasPassword, submitted, password, username}={}) => (
-  <form name="form" onSubmit={(event) => { handleSubmit(event)} }>
-      <div className="form-group">
+const Form = ({
+  handleChange, handleSubmit, hasPassword, submitted, password, username,
+} = {}) => (
+  <form name="form" onSubmit={(event) => { handleSubmit(event) }}>
+    <div className="form-group">
       <label htmlFor="inputUsername">Username</label>
-      <input type="text" className="form-control" id="inputUsername"
+      <input
+        className="form-control"
+        id="inputUsername"
+        name="username"
+        onChange={(event) => { handleChange(event) }}
         placeholder="Enter username"
-        name="username" value={username}
-        onChange={(event) => {handleChange(event)}}
+        type="text"
+        value={username}
       />
       {submitted && !username &&
         <Notification
-        type='danger'
-        message={message.USERNAME_REQUIRED}/>
+          message={message.USERNAME_REQUIRED}
+          type="danger"
+        />
       }
     </div>
-    {hasPassword
-    && <div className="form-group">
+    {hasPassword &&
+    <div className="form-group">
       <label htmlFor="inputPassword">Password</label>
-      <input type="password" className="form-control"
+      <input
+        className="form-control"
         id="inputPassword"
+        name="password"
+        onChange={event => handleChange(event)}
         placeholder="Password"
-        name="password" value={password}
-        onChange={(event) => handleChange(event)}
+        type="password"
+        value={password}
       />
       {submitted && !password &&
         <Notification
-        type='danger'
-        message={message.PASSWORD_REQUIRED}/>
-      }
+          message={message.PASSWORD_REQUIRED}
+          type="danger"
+        />}
     </div>}
-    <button type="submit" className="btn btn-primary" value={submitted}>Submit</button>
+    <button className="btn btn-primary" type="submit" value={submitted}>Submit</button>
   </form>
 )
+
+Form.defaultProps = {
+  password: null,
+}
+
 Form.propTypes = {
   handleChange: propTypes.func.isRequired,
   handleSubmit: propTypes.func.isRequired,
   hasPassword: propTypes.bool.isRequired,
-  submitted: propTypes.bool.isRequired,
   password: propTypes.string,
+  submitted: propTypes.bool.isRequired,
   username: propTypes.string.isRequired,
 }
 

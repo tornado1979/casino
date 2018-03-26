@@ -4,6 +4,15 @@
     "react"
   ],
   "rules": {
+    "jsx-a11y/click-events-have-key-events":"off",
+    "arrow-parens":"off",
+    "function-paren-newline":"off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }],
+    "react/no-unused-prop-types": "off",
     "arrow-body-style": "off",
     "import/prefer-default-export": "off",
     "no-useless-escape": ["off"],

@@ -8,38 +8,38 @@ import { getUser } from './modules/user/actionCreators'
 
 export const history = createHistory()
 
-//Initial state
+// Initial state
 const initialState = {}
 
 const enhancers = []
 const middleware = [
-    thunk,
-    routerMiddleware(history),
+  thunk,
+  routerMiddleware(history),
 ]
 
-if (process.env.NODE_ENV){
-    middleware.push(loggerMiddleware)
+if (process.env.NODE_ENV) {
+  middleware.push(loggerMiddleware)
 }
-if(process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.devToolsExtension
+if (process.env.NODE_ENV === 'development') {
+  const devToolsExtension = window.devToolsExtension // eslint-disable-line prefer-destructuring
 
-    if(typeof devToolsExtension === 'function') {
-        enhancers.push(devToolsExtension())
-    }
+  if (typeof devToolsExtension === 'function') {
+    enhancers.push(devToolsExtension())
+  }
 }
 
 const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers
+  applyMiddleware(...middleware),
+  ...enhancers,
 )
 
 const store = createStore(
-    rootReducers,
-    initialState,
-    composedEnhancers
+  rootReducers,
+  initialState,
+  composedEnhancers,
 )
 
-//check if user is logged in
+// check if user is logged in
 store.dispatch(getUser())
 
 export default store

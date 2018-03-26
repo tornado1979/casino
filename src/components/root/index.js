@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import Games from '../../modules/gameLobby'
 import GamePlayer from '../../modules/gamePlayer'
 import Login from '../../modules/login'
@@ -15,22 +15,22 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={history}>
       <div className="wrapper">
-        <Header/>
+        <Header />
         <div className="main">
-          <Route exact path="/" component={Games} />
-          <Route path="/game/:gameId" component={GamePlayer}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/logout" component={Logout}/>
-          <Route path="/settings" component={Settings}/>
+          <Route component={Games} exact path="/" />
+          <Route component={GamePlayer} path="/game/:gameId" />
+          <Route component={Login} path="/login" />
+          <Route component={Logout} path="/logout" />
+          <Route component={Settings} path="/settings" />
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   </Provider>
 )
- 
+
 Root.propTypes = {
-  store: PropTypes.object.isRequired
+  store: propTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 }
- 
+
 export default Root

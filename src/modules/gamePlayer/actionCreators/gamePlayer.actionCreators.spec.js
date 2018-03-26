@@ -3,20 +3,19 @@ import { expect } from 'chai'
 
 import * as action from './index'
 
-import { 
+import {
   RECEIVE_GAME,
   REQUEST_GAME,
   RECEIVE_GAME_FAIL,
- } from '../actions'
+} from '../actions'
 
 
 describe('* gamePlayer actionCreators:', () => {
-
   it('should create an action to request game ', () => {
     const expectedAction = {
       payload: {
-        game:{},
-        isFetching: true
+        game: {},
+        isFetching: true,
       },
       type: REQUEST_GAME,
     }
@@ -27,13 +26,13 @@ describe('* gamePlayer actionCreators:', () => {
   it('should create an action to receiveGame game ', () => {
     const game = {}
     const expectedAction =
-      { 
+      {
         payload: {
           game: {},
           isFetching: false,
         },
         type: RECEIVE_GAME,
-    }
+      }
 
     expect(action.receiveGame(game)).eql(expectedAction)
   })
@@ -49,5 +48,4 @@ describe('* gamePlayer actionCreators:', () => {
 
     expect(action.error(errorMsg)).eql(expectedAction)
   })
-
 })

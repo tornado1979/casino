@@ -13,35 +13,36 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
 } from '../../login/actions'
-describe ('* user reducers:', () => {
+
+describe('* user reducers:', () => {
   describe(`reducers/user when action is ${GET_USER}`, () => {
-    const theUser = {username: 'testuser'}
+    const theUser = { username: 'testuser' }
     const action = {
-        payload: { user: {...theUser} },
-        type: GET_USER
+      payload: { user: { ...theUser } },
+      type: GET_USER,
     }
-  
+
     it('updates user state', () => {
       expect(user(theUser, action)).to.eql({
         username: 'testuser',
       })
     })
   })
-  
+
   describe(`reducers/user when action is ${UPDATE_USERNAME_SUCCESS}`, () => {
     const username = 'testuser'
     const action = {
       payload: username,
       type: UPDATE_USERNAME_SUCCESS,
     }
-  
+
     it('updates username on state', () => {
       expect(user(undefined, action)).to.eql({
         username,
       })
     })
   })
-  
+
   describe(`reducers/user when action is ${LOGIN_REQUEST}`, () => {
     const action = {
       payload: {
@@ -49,7 +50,7 @@ describe ('* user reducers:', () => {
       },
       type: LOGIN_REQUEST,
     }
-  
+
     it('updates user state "isFetching" to true', () => {
       expect(user(undefined, action)).to.eql({
         isFetching: true,
@@ -58,15 +59,15 @@ describe ('* user reducers:', () => {
   })
 
   describe(`reducers/user when action is ${LOGIN_SUCCESS}`, () => {
-    const theUser = {username: 'testuser'}
+    const theUser = { username: 'testuser' }
     const action = {
       payload: {
         ...theUser,
-        isFetching: false
+        isFetching: false,
       },
       type: LOGIN_SUCCESS,
     }
-  
+
     it('updates user state', () => {
       expect(user(undefined, action)).to.eql({
         ...theUser,
@@ -78,16 +79,15 @@ describe ('* user reducers:', () => {
   describe(`reducers/user when action is ${LOGIN_FAIL}`, () => {
     const action = {
       payload: {
-        isFetching: false
+        isFetching: false,
       },
       type: LOGIN_FAIL,
     }
-  
+
     it('updates user state "isFetching" to false', () => {
       expect(user(undefined, action)).to.eql({
         isFetching: false,
       })
     })
   })
-
 })

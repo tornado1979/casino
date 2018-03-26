@@ -4,8 +4,8 @@ import {
   RECEIVE_GAMES_FAIL,
 } from '../actions'
 
-export const asyncGames = (state=[], action) => {
-  switch (action.type){
+export const asyncGames = (state = [], action) => {
+  switch (action.type) {
     case REQUEST_GAMES:
       return {
         isFetching: true,
@@ -17,7 +17,7 @@ export const asyncGames = (state=[], action) => {
       }
     case RECEIVE_GAMES_FAIL:
       return {
-        casinoGames:[],
+        casinoGames: [],
         isFetching: false,
       }
     default:

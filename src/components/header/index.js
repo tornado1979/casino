@@ -1,18 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 
 import { isUserLoggedIn, getUsername } from '../../modules/user/selectors'
 
 const Header = props => (
   <nav className="nav justify-content-end flex-column flex-sm-row">
-    <Link to="/" className="flex-sm-fill text-sm-center nav-link active" >Games</Link>
+    <Link className="flex-sm-fill text-sm-center nav-link active" to="/" >Games</Link>
     {props.isLoggedIn && <div className="username-nav flex-sm-fill text-sm-center nav-link">{props.username}</div>}
-    {props.isLoggedIn && <Link to="/settings" className="flex-sm-fill text-sm-center nav-link" >Settings</Link>}
-    {props.isLoggedIn && <Link to="/logout" className="flex-sm-fill text-sm-center nav-link" >Logout</Link>}
-    {!props.isLoggedIn && <Link to="/login" className="flex-sm-fill text-sm-center nav-link" >Login</Link>}
+    {props.isLoggedIn && <Link className="flex-sm-fill text-sm-center nav-link" to="/settings" >Settings</Link>}
+    {props.isLoggedIn && <Link className="flex-sm-fill text-sm-center nav-link" to="/logout" >Logout</Link>}
+    {!props.isLoggedIn && <Link className="flex-sm-fill text-sm-center nav-link" to="/login" >Login</Link>}
   </nav>
 )
+
+Header.defaultProps = {
+  username: null,
+}
+
+Header.propTypes = {
+  isLoggedIn: propTypes.bool.isRequired,
+  username: propTypes.string,
+}
 
 function mapStateToProps(state) {
   const isLoggedIn = isUserLoggedIn(state)
