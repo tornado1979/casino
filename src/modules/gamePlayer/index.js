@@ -54,7 +54,7 @@ render() {
     <div className="my-container">
     <div className="my-row justify-content-center">
       <div className="game-player col-sm-6" style={gamebg}>
-       <span className="closeButton" onClick={() => this.goto('/games')}>x</span>       
+       <span className="closeButton" onClick={() => this.goto('/')}>x</span>       
           {!isLoggedIn 
           && <div className="mx-auto w-100 p-3 bg-dark small-container">
           {/*if user is not logged in*/}
