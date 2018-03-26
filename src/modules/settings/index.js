@@ -24,28 +24,36 @@ class Settings extends Component {
     const { name, value } = event.target
     event.preventDefault();
     this.setState({
-      [name]:value
+      [name]:value,
+      submitted: false, //when user types on input box
     })
   }
 
   handleSubmit(event){
     event.preventDefault();
-    this.setState({submitted: true})
-    const { username } = this.state
-    if(username){
-      this.props.updateUsername(username)
+    //prevent submit, if user clicks 'submit' button many times continiously
+    if(!this.state.submitted){
+      this.setState({submitted: true})
+      const { username } = this.state
+      if(username){
+        this.props.updateUsername(username)
+      }
     }
   }
 
   render() {
-    const { username } = this.state;
+    const {
+      username,
+      submitted,
+     } = this.state;
+    
     return(
       <div className="my-container">
         <div className="my-row justify-content-center">
           <div className="col-sm-6">
             <Form
               username={username}
-              submitted={false}
+              submitted={submitted}
               handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
               hasPassword={false}
