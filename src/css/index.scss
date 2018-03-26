@@ -21,12 +21,6 @@ body {
   background-color: lightslategray;
 }
 
-.footer {
-  background-color: dimgrey;
-  color: #fff;
-  height:39px;
-}
-
 .my-container {
   @include make-container;
   margin: auto;
@@ -112,4 +106,8 @@ body {
 .small-container{
   position: relative;
   top: 40%;
+}
+
+.footer{
+  line-height: 40px;
 }

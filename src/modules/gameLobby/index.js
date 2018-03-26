@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
-import { history } from '../../helpers/history';
 import Notification from '../../components/notification'
 import {
   PLAY_FOR_FUN,
@@ -22,16 +21,9 @@ import {
 import { isUserLoggedIn } from '../user/selectors'
 
 class GameLobby extends Component {
-  constructor(props){
-    super(props)
-  }
 
   componentDidMount(){
     this.props.fetchGames()
-  }
-
-  goto(){
-
   }
 
   render() {
