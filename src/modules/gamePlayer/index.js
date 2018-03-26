@@ -71,7 +71,7 @@ render() {
             <Button
               message={GAME_NOT_EXIST}
               action={this.goto}
-              goto="/games"/>
+              goto="/"/>
           </div>}
       </div>
     </div>

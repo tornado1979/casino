@@ -48,7 +48,7 @@ export const login = (username,password) => (dispatch) => {
     //save the user on localStorage
     localStorage.setItem('user', JSON.stringify(user));
     //direct the logedin user to the games page
-    history.push('/games')
+    history.push('/')
   })
   .catch((err) => {
     return dispatch(loginFailure())
