@@ -3,10 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
 import Notification from '../../components/notification'
-import {
-  PLAY_FOR_FUN,
-  PLAY_FOR_REAL,
-} from '.././../constants'
+
+import * as message from '../../constants'
 
 import '../../css/index.scss'
 
@@ -36,7 +34,7 @@ class GameLobby extends Component {
     let casinoGames
 
     const notificationType = isLoggedIn ? 'success' : 'danger'
-    const notificationMessage = isLoggedIn ? PLAY_FOR_REAL : PLAY_FOR_FUN
+    const notificationMessage = isLoggedIn ? message.PLAY_FOR_REAL : message.PLAY_FOR_FUN
 
     if(games && games.length > 0){
 

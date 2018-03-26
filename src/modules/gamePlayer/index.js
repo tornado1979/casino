@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 import propTypes from 'prop-types'
 import _ from 'lodash'
 
-import { 
-  LOGIN_TO_PLAY,
-  GAME_NOT_EXIST,
-  } from '../../constants'
+import * as message from '../../constants'
 
 import {
   fetchGame,
@@ -48,7 +45,7 @@ render() {
   const nogame = _.isEmpty(game)
 
   const gamebg = !nogame ? {'backgroundImage': `url(${game.image})`}
-    : {'backgroundImage': `url(http://www.deutz-hellas.gr/dummy-database/images/loader.gif)`}
+    : {'backgroundImage': `url(${message.LOADER_URL})`}
 
   return(
     <div className="my-container">
@@ -59,7 +56,7 @@ render() {
           && <div className="mx-auto w-100 p-3 bg-dark small-container">
           {/*if user is not logged in*/}
             <Button
-              message={LOGIN_TO_PLAY}
+              message={message.LOGIN_TO_PLAY}
               action={this.goto}
               goto="/login"/>
           </div>}
@@ -69,7 +66,7 @@ render() {
           && nogame 
           && <div className="mx-auto w-100 p-3 bg-dark small-container">
             <Button
-              message={GAME_NOT_EXIST}
+              message={message.GAME_NOT_EXIST}
               action={this.goto}
               goto="/"/>
           </div>}
