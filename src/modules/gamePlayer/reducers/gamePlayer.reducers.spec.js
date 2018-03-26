@@ -8,24 +8,25 @@ import {
   RECEIVE_GAME,
   RECEIVE_GAME_FAIL,
 } from '../actions'
+
 describe('* gamePlayer reducers:', () => {
   describe(`reducers/gamePlayer when action is ${REQUEST_GAME}`, () => {
     const action = {
       payload: {
-        game:{},
-        isFetching: true
+        game: {},
+        isFetching: true,
       },
       type: REQUEST_GAME,
     }
-  
+
     it('updates game state "isFetching" to true', () => {
       expect(gamePlayer(undefined, action)).to.eql({
-        game:{},
+        game: {},
         isFetching: true,
       })
     })
   })
-  
+
   describe(`reducers/gamePlayer when action is ${RECEIVE_GAME}`, () => {
     const action = {
       payload: {
@@ -40,7 +41,7 @@ describe('* gamePlayer reducers:', () => {
       },
       type: RECEIVE_GAME,
     }
-  
+
     it('adds selected game on game state', () => {
       expect(gamePlayer(undefined, action)).to.eql({
         game: {
@@ -54,12 +55,12 @@ describe('* gamePlayer reducers:', () => {
       })
     })
   })
-  
+
   describe(`reducers/gamePlayer when action is ${RECEIVE_GAME_FAIL}`, () => {
     const action = {
       type: RECEIVE_GAME_FAIL,
     }
-  
+
     it('updates gamePlayer state "isFetching" to false', () => {
       expect(gamePlayer(undefined, action)).to.eql({
         game: {},

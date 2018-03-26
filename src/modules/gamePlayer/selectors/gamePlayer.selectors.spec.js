@@ -4,26 +4,27 @@ import deepFreeze from 'deep-freeze'
 
 import { getGame } from './index'
 
-describe('* gamePlayer/selectors:', function(){
+describe('* gamePlayer/selectors:', () => {
   it('gets the game from state', () => {
-    const state = 
-    {gamePlayer:{
-      game: {
-          gameId:1,
+    const state =
+    {
+      gamePlayer: {
+        game: {
+          gameId: 1,
           gameName: 'Finn',
           gameUrl: 'someurl',
           gameDscription: 'lorem ipsum',
-        }
-      }
+        },
+      },
     }
     const result = getGame(state)
     deepFreeze(state)
 
     expect(result).to.eql({
-      gameId:1,
+      gameDscription: 'lorem ipsum',
+      gameId: 1,
       gameName: 'Finn',
       gameUrl: 'someurl',
-      gameDscription: 'lorem ipsum',
     })
   })
 })

@@ -3,16 +3,16 @@ import { expect } from 'chai'
 
 import * as action from './index'
 
-import { 
+import {
   RECEIVE_GAMES,
   REQUEST_GAMES,
   RECEIVE_GAMES_FAIL,
- } from '../actions'
+} from '../actions'
 
 describe('* gameLobby actionCreators:', () => {
   it('should create an action to request games ', () => {
     const expectedAction = {
-      payload: {isFetching: true},
+      payload: { isFetching: true },
       type: REQUEST_GAMES,
     }
 
@@ -24,13 +24,13 @@ describe('* gameLobby actionCreators:', () => {
       casinoGames: [],
     }
     const expectedAction =
-      { 
+      {
         payload: {
           casinoGames: [],
           isFetching: false,
-        },        
-      type: RECEIVE_GAMES
-    }
+        },
+        type: RECEIVE_GAMES,
+      }
 
     expect(action.receiveGames(games)).eql(expectedAction)
   })
@@ -46,5 +46,4 @@ describe('* gameLobby actionCreators:', () => {
 
     expect(action.error(errorMsg)).eql(expectedAction)
   })
-
 })

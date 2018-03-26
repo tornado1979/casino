@@ -21,74 +21,73 @@ import { history } from '../../helpers/history'
 
 
 class GamePlayer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.goto = this.goto.bind(this)
-
-    this.state = {gameExists:false}
   }
 
-goto(path){
-  history.push(path)
-}
+  componentDidMount() {
+    const {
+      gameId,
+    } = this.props.match.params
 
-componentDidMount(){
-  const {
-    gameId,
-  } = this.props.match.params
+    this.props.fetchGame(gameId)
+  }
 
-  this.props.fetchGame(gameId)
-}
 
-render() {
-  const { isLoggedIn, game } = this.props
-  const nogame = _.isEmpty(game)
+  goto(path) { // eslint-disable-line class-methods-use-this
+    history.push(path)
+  }
 
-  const gamebg = !nogame ? {'backgroundImage': `url(${game.image})`}
-    : {'backgroundImage': `url(${message.LOADER_URL})`}
+  render() {
+    const { isLoggedIn, game } = this.props
+    const nogame = _.isEmpty(game)
 
-  return(
-    <div className="my-container">
-    <div className="my-row justify-content-center">
-      <div className="game-player col-sm-6" style={gamebg}>
-       <span className="closeButton" onClick={() => this.goto('/')}>x</span>       
-          {!isLoggedIn 
-          && <div className="mx-auto w-100 p-3 bg-dark small-container">
-          {/*if user is not logged in*/}
-            <Button
-              message={message.LOGIN_TO_PLAY}
-              action={this.goto}
-              goto="/login"/>
-          </div>}
+    const gamebg = !nogame ? { backgroundImage: `url(${game.image})` }
+      : { backgroundImage: `url(${message.LOADER_URL})` }
 
-          {/*if the user is loggd in and if the game does not exist: e.g. game/13762 */}
-          {isLoggedIn 
-          && nogame 
-          && <div className="mx-auto w-100 p-3 bg-dark small-container">
-            <Button
-              message={message.GAME_NOT_EXIST}
-              action={this.goto}
-              goto="/"/>
-          </div>}
+    return (
+      <div className="my-container">
+        <div className="my-row justify-content-center">
+          <div className="game-player col-sm-6" style={gamebg}>
+            <span className="closeButton" onClick={() => this.goto('/')} role="button" tabIndex={0}>x</span>
+            {!isLoggedIn &&
+              <div className="mx-auto w-100 p-3 bg-dark small-container">
+                { /* if user is not logged in */ }
+                <Button
+                  action={this.goto}
+                  goto="/login"
+                  message={message.LOGIN_TO_PLAY}
+                />
+              </div>}
+
+            {/* if the user is loggd in and if the game does not exist: e.g. game/13762 */}
+            {isLoggedIn
+            && nogame &&
+              <div className="mx-auto w-100 p-3 bg-dark small-container">
+                <Button
+                  action={this.goto}
+                  goto="/"
+                  message={message.GAME_NOT_EXIST}
+                />
+              </div>}
+          </div>
+        </div>
+        <div className="my-row justify-content-center">
+          <div className="col-sm-12">
+            {!nogame && `${game.gameName}.  ${game.description}`}
+          </div>
+        </div>
       </div>
-    </div>
-    <div className="my-row justify-content-center">
-      <div className="col-sm-12">
-        {!nogame && `${game.gameName}.  ${game.description}`}
-      </div>
-    </div>
-  </div>
     )
-  } 
+  }
 }
 
 GamePlayer.propTypes = {
-
-}
-
-GamePlayer.propTypes = {
-  game: propTypes.object.isRequired,
   fetchGame: propTypes.func.isRequired,
+  game: propTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  isLoggedIn: propTypes.bool.isRequired,
+  match: propTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 }
 
 const mapStateToProps = (state) => {
@@ -99,7 +98,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
   fetchGame,
 }, dispatch)
 

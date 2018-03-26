@@ -4,26 +4,26 @@ import deepFreeze from 'deep-freeze'
 
 import { getGames } from './index'
 
-process.env.NODE_ENV = 'test';
-
-describe('* gameLobby/selectors:', function() {
+describe('* gameLobby/selectors:', () => {
   it('gets games list from state', () => {
-    const state = 
-    {games:{
-      casinoGames: [
-        {
-          gameId:1,
-          gameName: 'Finn',
-          gameUrl: 'someurl',
-          gameDscription: 'lorem ipsum',
-        },
-        {
-          gameId:2,
-          gameName: 'Immortal',
-          gameUrl: 'someurl',
-          gameDscription: 'lorem ipsum',
-        }
-      ]}
+    const state =
+    {
+      games: {
+        casinoGames: [
+          {
+            gameDscription: 'lorem ipsum',
+            gameId: 1,
+            gameName: 'Finn',
+            gameUrl: 'someurl',
+          },
+          {
+            gameDscription: 'lorem ipsum',
+            gameId: 2,
+            gameName: 'Immortal',
+            gameUrl: 'someurl',
+          },
+        ],
+      },
     }
     const result = getGames(state)
     deepFreeze(state)

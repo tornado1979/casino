@@ -8,34 +8,34 @@ import { updateUsername } from '../user/actionCreators'
 import '../../css/index.scss'
 
 class Settings extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.state = {
-      username: props.username,
       submitted: false,
+      username: props.username,
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event){
+  handleChange(event) {
     const { name, value } = event.target
-    event.preventDefault();
+    event.preventDefault()
     this.setState({
-      [name]:value,
-      submitted: false, //when user types on input box
+      [name]: value,
+      submitted: false, // when user types on input box
     })
   }
 
-  handleSubmit(event){
-    event.preventDefault();
-    //prevent submit, if user clicks 'submit' button many times continiously
-    if(!this.state.submitted){
-      this.setState({submitted: true})
+  handleSubmit(event) {
+    event.preventDefault()
+    // prevent submit, if user clicks 'submit' button many times continiously
+    if (!this.state.submitted) {
+      this.setState({ submitted: true })
       const { username } = this.state
-      if(username){
+      if (username) {
         this.props.updateUsername(username)
       }
     }
@@ -45,18 +45,18 @@ class Settings extends Component {
     const {
       username,
       submitted,
-     } = this.state;
-    
-    return(
+    } = this.state
+
+    return (
       <div className="my-container">
         <div className="my-row justify-content-center">
           <div className="col-sm-6">
             <Form
-              username={username}
-              submitted={submitted}
-              handleSubmit={this.handleSubmit}
               handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
               hasPassword={false}
+              submitted={submitted}
+              username={username}
             />
           </div>
         </div>
@@ -66,8 +66,8 @@ class Settings extends Component {
 }
 
 Settings.propTypes = {
-  username: propTypes.string.isRequired,
   updateUsername: propTypes.func.isRequired,
+  username: propTypes.string.isRequired,
 }
 
 const mapStateToProps = (state) => {
@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
   updateUsername,
 }, dispatch)
 

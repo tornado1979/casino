@@ -6,9 +6,8 @@ import { history } from '../../helpers/history'
 import { logout } from '../logout/actionCreators'
 
 class LogoutPage extends Component {
-
   componentWillMount() {
-    //dispatch action to erase user from state
+    // dispatch action to erase user from state
     this.props.logout()
     history.push('./login')
   }

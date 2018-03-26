@@ -36,22 +36,22 @@ export const loginFailure = () => {
   }
 }
 
-export const login = (username,password) => (dispatch) => {
+export const login = (username, password) => (dispatch) => {
   dispatch(requestLogin())
   const URL = `${USERS_URL}?username=${username}&password=${password}`
   return axios(URL)
-  .then((response)=> {
-    return response.data
-  })
-  .then((user) => {
-    dispatch(loginSuccess(user))
-    //save the user on localStorage
-    localStorage.setItem('user', JSON.stringify(user));
-    //direct the logedin user to the games page
-    history.push('/')
-  })
-  .catch((err) => {
-    return dispatch(loginFailure())
-    //pending: dispatch error message on the client as a notification..
-  })
+    .then((response) => {
+      return response.data
+    })
+    .then((user) => {
+      dispatch(loginSuccess(user))
+      // save the user on localStorage
+      localStorage.setItem('user', JSON.stringify(user))
+      // direct the logedin user to the games page
+      history.push('/')
+    })
+    .catch(() => {
+      return dispatch(loginFailure())
+      // pending: dispatch error message on the client as a notification..
+    })
 }

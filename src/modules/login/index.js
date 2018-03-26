@@ -8,55 +8,55 @@ import Form from '../../components/form'
 import '../../css/index.scss'
 
 class Login extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
 
     this.state = {
-      username: '',
       password: '',
       submitted: false,
+      username: '',
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(event){
+  handleChange(event) {
     const { name, value } = event.target
-    event.preventDefault();
+    event.preventDefault()
     this.setState({
-      [name]:value,
-      submitted: false, //when user types on input box
+      [name]: value,
+      submitted: false, // when user types on input box
     })
   }
 
-  handleSubmit(event){
-    event.preventDefault();
-     //prevent submit, if user clicks 'submit' button many times continiously
-    if(!this.state.submitted){
-      this.setState({submitted: true})
+  handleSubmit(event) {
+    event.preventDefault()
+    // prevent submit, if user clicks 'submit' button many times continiously
+    if (!this.state.submitted) {
+      this.setState({ submitted: true })
       const { username, password } = this.state
-  
-      if(username && password){
-        this.props.login(username,password)
+
+      if (username && password) {
+        this.props.login(username, password)
       }
     }
   }
 
   render() {
-    const { username, password, submitted } = this.state;
-    return(
+    const { username, password, submitted } = this.state
+    return (
       <div className="my-container">
         <div className="my-row justify-content-center">
           <div className="col-sm-6">
             <Form
-                username={username}
-                password={password}
-                hasPassword={true}
-                submitted={submitted}
-                handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-              />
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              hasPassword
+              password={password}
+              submitted={submitted}
+              username={username}
+            />
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@ Login.propTypes = {
   login: propTypes.func.isRequired,
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
   login,
 }, dispatch)
 
