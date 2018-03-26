@@ -17,7 +17,7 @@ const Root = ({ store }) => (
       <div className="wrapper">
         <Header/>
         <div className="main">
-          <Route exact path="/games" component={Games} />
+          <Route exact path="/" component={Games} />
           <Route path="/game/:gameId" component={GamePlayer}/>
           <Route path="/login" component={Login}/>
           <Route path="/logout" component={Logout}/>

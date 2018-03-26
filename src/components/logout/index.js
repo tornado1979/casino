@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import propTypes from 'prop-types'
@@ -8,9 +8,9 @@ import { logout } from '../logout/actionCreators'
 class LogoutPage extends Component {
 
   componentWillMount() {
-    //dispatch action to crear user from state
+    //dispatch action to erase user from state
     this.props.logout()
-    history.push('./')
+    history.push('./login')
   }
 
   render() {
@@ -18,7 +18,7 @@ class LogoutPage extends Component {
   }
 }
 LogoutPage.propTypes = {
- 
+  logout: propTypes.func.isRequired,
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
