@@ -1,9 +1,11 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
+import Notification from '../notification'
+import * as message from '../../constants'
+
 const Form = ({ handleChange, handleSubmit, hasPassword, submitted, password, username}={}) => (
   <form name="form" onSubmit={(event) => { handleSubmit(event)} }>
-
       <div className="form-group">
       <label htmlFor="inputUsername">Username</label>
       <input type="text" className="form-control" id="inputUsername"
@@ -11,6 +13,11 @@ const Form = ({ handleChange, handleSubmit, hasPassword, submitted, password, us
         name="username" value={username}
         onChange={(event) => {handleChange(event)}}
       />
+      {submitted && !username &&
+        <Notification
+        type='danger'
+        message={message.USERNAME_REQUIRED}/>
+      }
     </div>
     {hasPassword
     && <div className="form-group">
@@ -21,6 +28,11 @@ const Form = ({ handleChange, handleSubmit, hasPassword, submitted, password, us
         name="password" value={password}
         onChange={(event) => handleChange(event)}
       />
+      {submitted && !password &&
+        <Notification
+        type='danger'
+        message={message.PASSWORD_REQUIRED}/>
+      }
     </div>}
     <button type="submit" className="btn btn-primary" value={submitted}>Submit</button>
   </form>

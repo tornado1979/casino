@@ -6,9 +6,9 @@ export default ({
   type,
   to
 }={}) => {
-
-    return (
+  return (
     <div className={`alert alert-${type}`} role="alert">
-      <Link to={to} className="alert-link">{message}</Link>
+      {to && <Link to={to} className="alert-link">{message}</Link>}
+      {!to && <div className="alert-link">{message}</div>}
     </div>
 )}

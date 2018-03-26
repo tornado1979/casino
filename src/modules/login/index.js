@@ -25,18 +25,21 @@ class Login extends Component {
     const { name, value } = event.target
     event.preventDefault();
     this.setState({
-      [name]:value
+      [name]:value,
+      submitted: false, //when user types on input box
     })
   }
 
   handleSubmit(event){
-
     event.preventDefault();
-    this.setState({submitted: true})
-    const { username, password } = this.state
-
-    if(username && password){
-      this.props.login(username,password)
+     //prevent submit, if user clicks 'submit' button many times continiously
+    if(!this.state.submitted){
+      this.setState({submitted: true})
+      const { username, password } = this.state
+  
+      if(username && password){
+        this.props.login(username,password)
+      }
     }
   }
 
