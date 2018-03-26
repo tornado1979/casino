@@ -47,8 +47,8 @@ render() {
   const { isLoggedIn, game } = this.props
   const nogame = _.isEmpty(game)
 
-  const gamebg = !nogame ? {'background-image': `url(${game.image})`}
-    : {'background-image': `url(http://www.deutz-hellas.gr/dummy-database/images/loader.gif)`}
+  const gamebg = !nogame ? {'backgroundImage': `url(${game.image})`}
+    : {'backgroundImage': `url(http://www.deutz-hellas.gr/dummy-database/images/loader.gif)`}
 
   return(
     <div className="my-container">
