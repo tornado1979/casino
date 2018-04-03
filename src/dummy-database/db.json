@@ -1,0 +1,45 @@
+{
+  "games":{
+    "casinoGames": [
+      {
+        "gameId": 1,
+        "gameName": "Finn and the Swirly Spin",
+        "image": "http:\/\/www.deutz-hellas.gr\/dummy-database\/images\/finn.jpg",
+        "description":" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.",
+        "favorite": 5
+      },
+      {
+        "gameId":2,
+        "gameName":"Piggy Riches",
+        "image":"http:\/\/www.deutz-hellas.gr\/dummy-database\/images\/piggy.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.",
+        "favorite":162
+      },
+      {
+        "gameId":3,
+        "gameName":"Gold King",
+        "image":"http:\/\/www.deutz-hellas.gr\/dummy-database\/images\/king.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.",
+        "favorite":48
+      },
+      {
+        "gameId":4,
+        "gameName":"Immortal Romance",
+        "image":"http:\/\/www.deutz-hellas.gr\/dummy-database\/images\/immortal.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.",
+        "favorite":0
+      },
+      {
+        "gameId":5,
+        "gameName":"Playboy Gold",
+        "image":"http:\/\/www.deutz-hellas.gr\/dummy-database\/images\/playboy.jpg",
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl metus, condimentum in arcu eget, auctor posuere augue. Donec quis nisl eget dui placerat ultricies. Nam at arcu at lectus volutpat scelerisque. Sed commodo accumsan nulla, eu hendrerit nibh luctus eget. Aliquam erat volutpat. Cras eget aliquet ex, condimentum placerat mi. Duis gravida porta vestibulum.",
+        "favorite":7
+      }
+    ]
+  },
+  "users": [
+    {"username":"user1", "password":"pass1"},
+    {"username":"user2", "password":"pass2"}
+  ]
+}
